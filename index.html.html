@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f6f1e8" />
+  <meta name="description" content="Invitation au mariage de Morgane & Alexandre — 15 août 2027" />
+  <title>Morgane & Alexandre — 15 août 2027</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ivory: #f7f3eb;
+      --ivory-2: #efe8dc;
+      --sand: #d8cbb8;
+      --sage: #ccd5c3;
+      --sage-dark: #87917f;
+      --champagne: #bda57e;
+      --ink: #2f2d2a;
+      --muted: #6f6a63;
+      --white: #fffdfa;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "Manrope", Arial, sans-serif;
+      --script: "Parisienne", cursive;
+      --shadow: 0 18px 55px rgba(74, 61, 48, 0.10);
+      --radius: 28px;
+      --radius-sm: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--ivory);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .72rem;
+      color: var(--champagne);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 7vw, 5.3rem);
+      line-height: .95;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      margin-bottom: 28px;
+    }
+    h3 {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .script { font-family: var(--script); font-weight: 400; }
+    .muted { color: var(--muted); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(47,45,42,.22);
+      background: transparent;
+      color: var(--ink);
+      transition: .35s ease;
+      cursor: pointer;
+      letter-spacing: .03em;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--ink); color: var(--white); }
+    .btn-primary { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .btn-primary:hover { background: #46413c; }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      place-items: center;
+      color: white;
+      text-align: center;
+      isolation: isolate;
+      background:
+        linear-gradient(rgba(25,22,18,.30), rgba(25,22,18,.45)),
+        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=90') center/cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 160px;
+      background: linear-gradient(to top, var(--ivory), transparent);
+      z-index: -1;
+    }
+    .hero-content { padding: 30px; animation: heroIn 1.7s ease both; }
+    .hero-names {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 14vw, 9rem);
+      font-weight: 400;
+      line-height: .82;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 24px rgba(0,0,0,.15);
+    }
+    .hero-date { font-size: .9rem; letter-spacing: .26em; text-transform: uppercase; margin-bottom: 16px; }
+    .hero-line { font-family: var(--serif); font-size: 1.45rem; font-style: italic; }
+    .scroll-cue {
+      position: absolute;
+      bottom: 34px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .78rem;
+      letter-spacing: .12em;
+      opacity: .88;
+      animation: float 2.2s ease-in-out infinite;
+    }
+
+    .announcement { text-align: center; }
+    .announcement .copy { max-width: 730px; margin: 0 auto 28px; font-size: 1.08rem; }
+    .signature { font-family: var(--script); font-size: clamp(2.5rem, 8vw, 4.6rem); color: var(--sage-dark); }
+    .ornament { display: flex; align-items: center; justify-content: center; gap: 14px; margin: 26px auto; color: var(--champagne); }
+    .ornament::before, .ornament::after { content: ""; width: 70px; height: 1px; background: currentColor; opacity: .55; }
+
+    .countdown-wrap {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 56px 28px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+    .date-display { font-family: var(--serif); font-size: clamp(3.2rem, 10vw, 7rem); line-height: .9; letter-spacing: .08em; margin-bottom: 18px; }
+    .count-title { font-family: var(--serif); font-size: 2.1rem; font-style: italic; margin-bottom: 30px; }
+    .count-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 650px; margin: auto; }
+    .count-box { padding: 18px 10px; border-top: 1px solid rgba(47,45,42,.15); border-bottom: 1px solid rgba(47,45,42,.15); }
+    .count-number { font-family: var(--serif); font-size: clamp(2.4rem, 8vw, 4.5rem); line-height: 1; }
+    .count-label { font-size: .68rem; text-transform: uppercase; letter-spacing: .16em; color: var(--muted); margin-top: 8px; }
+
+    .story-grid { display: grid; gap: 28px; }
+    .story-photo { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .story-photo img { aspect-ratio: 4/5; object-fit: cover; transition: transform 1s ease; }
+    .story-photo:hover img { transform: scale(1.03); }
+    .story-card { background: rgba(255,255,255,.46); padding: 32px; border-radius: var(--radius); }
+    .story-date { font-size: .75rem; letter-spacing: .15em; text-transform: uppercase; color: var(--champagne); margin-bottom: 7px; }
+    .story-list { display: grid; gap: 24px; }
+
+    .grand-day {
+      min-height: 76svh;
+      display: grid;
+      align-items: end;
+      color: white;
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        linear-gradient(to top, rgba(25,22,18,.62), rgba(25,22,18,.04)),
+        url('https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=1800&q=90') center/cover no-repeat;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .grand-day .inner { max-width: 680px; }
+    .grand-day h2 { margin-bottom: 14px; }
+    .grand-day .day-date { font-size: 1.08rem; letter-spacing: .1em; text-transform: uppercase; }
+
+    .timeline { position: relative; margin-top: 40px; }
+    .timeline::before { content: ""; position: absolute; left: 20px; top: 10px; bottom: 10px; width: 1px; background: rgba(47,45,42,.2); }
+    .timeline-item { position: relative; padding-left: 62px; padding-bottom: 38px; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot { position: absolute; left: 9px; top: 3px; width: 23px; height: 23px; border-radius: 50%; background: var(--ivory); border: 1px solid var(--champagne); display: grid; place-items: center; font-size: .7rem; }
+    .timeline-time { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--champagne); }
+    .timeline-title { font-family: var(--serif); font-size: 2rem; margin: 2px 0 4px; }
+
+    .places-grid { display: grid; gap: 24px; }
+    .place-card { background: var(--white); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+    .place-card img { height: 300px; object-fit: cover; }
+    .place-content { padding: 28px; }
+    .place-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .18em; color: var(--champagne); }
+
+    .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .gallery figure { margin: 0; overflow: hidden; border-radius: var(--radius-sm); }
+    .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s ease; }
+    .gallery figure:hover img { transform: scale(1.035); }
+    .gallery .wide { grid-column: 1 / -1; aspect-ratio: 16/9; }
+    .gallery .portrait { aspect-ratio: 3/4; }
+    .gallery .square { aspect-ratio: 1/1; }
+    .gallery .tall { grid-row: span 2; min-height: 480px; }
+
+    .details-grid { display: grid; gap: 16px; }
+    .detail-card { padding: 26px; background: rgba(255,255,255,.5); border: 1px solid rgba(47,45,42,.08); border-radius: var(--radius-sm); }
+    .detail-icon { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(189,165,126,.55); display: grid; place-items: center; margin-bottom: 14px; font-size: .85rem; }
+
+    .rsvp-wrap {
+      background: #e9e2d7;
+      border-radius: 36px;
+      padding: 34px 22px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rsvp-wrap::after {
+      content: "❧";
+      position: absolute;
+      right: -6px;
+      top: -34px;
+      font-family: var(--serif);
+      font-size: 12rem;
+      color: rgba(135,145,127,.09);
+      transform: rotate(15deg);
+    }
+    .rsvp-intro { max-width: 700px; position: relative; z-index: 1; }
+    .rsvp-form { display: grid; gap: 14px; margin-top: 30px; position: relative; z-index: 1; }
+    .field { display: grid; gap: 7px; }
+    label { font-size: .76rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(47,45,42,.16);
+      background: rgba(255,255,255,.72);
+      border-radius: 14px;
+      padding: 14px 15px;
+      color: var(--ink);
+      outline: none;
+      transition: .25s ease;
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--champagne); box-shadow: 0 0 0 3px rgba(189,165,126,.12); }
+    textarea { min-height: 120px; resize: vertical; }
+    .form-grid-2 { display: grid; gap: 14px; }
+    .form-message { display: none; margin-top: 14px; padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,.72); }
+
+    .finale {
+      min-height: 92svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      background:
+        linear-gradient(rgba(25,22,18,.38), rgba(25,22,18,.5)),
+        url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=90') center/cover no-repeat;
+    }
+    .finale-content { width: min(720px, calc(100% - 38px)); }
+    .finale h2 { font-size: clamp(3.8rem, 14vw, 8rem); margin-bottom: 16px; }
+    .finale .date { letter-spacing: .22em; text-transform: uppercase; font-size: .84rem; }
+    .heart { font-family: var(--serif); font-size: 1.6rem; opacity: .9; margin-top: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+    @keyframes float { 0%,100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+
+    @media (min-width: 760px) {
+      .section { padding: 122px 0; }
+      .story-grid { grid-template-columns: 1fr 1.05fr; align-items: center; gap: 70px; }
+      .story-grid.reverse { grid-template-columns: 1.05fr 1fr; }
+      .story-grid.reverse .story-photo { order: 2; }
+      .places-grid { grid-template-columns: repeat(2, 1fr); }
+      .details-grid { grid-template-columns: repeat(2, 1fr); }
+      .form-grid-2 { grid-template-columns: repeat(2, 1fr); }
+      .rsvp-wrap { padding: 64px; }
+      .gallery { grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .gallery .wide { grid-column: span 2; }
+      .gallery .feature { grid-column: span 2; grid-row: span 2; min-height: 520px; }
+    }
+
+    @media (min-width: 1024px) {
+      .details-grid { grid-template-columns: repeat(4, 1fr); }
+      .grand-day { padding: 60px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero" id="accueil">
+    <div class="hero-content">
+      <div class="hero-names">Morgane<br><span class="script">&</span> Alexandre</div>
+      <div class="hero-date">15 août 2027</div>
+      <div class="hero-line">Nous allons nous dire oui.</div>
+    </div>
+    <a class="scroll-cue" href="#annonce">Découvrez notre journée ↓</a>
+  </header>
+
+  <main>
+    <section class="section announcement" id="annonce">
+      <div class="container reveal">
+        <div class="section-kicker">Save the date</div>
+        <h2>Nous nous marions</h2>
+        <p class="copy">C’est avec beaucoup de bonheur que nous vous invitons à partager avec nous l’un des plus beaux jours de notre vie.</p>
+        <p class="copy"><strong>Rendez-vous le 15 août 2027 pour célébrer notre mariage.</strong></p>
+        <div class="ornament">✦</div>
+        <div class="signature">Morgane & Alexandre</div>
+      </div>
+    </section>
+
+    <section class="section" id="compte-a-rebours">
+      <div class="container reveal">
+        <div class="countdown-wrap">
+          <div class="date-display">15 · 08 · 2027</div>
+          <div class="count-title">Le grand jour approche…</div>
+          <div class="count-grid" aria-label="Compte à rebours avant le mariage">
+            <div class="count-box"><div class="count-number" id="days">—</div><div class="count-label">Jours</div></div>
+            <div class="count-box"><div class="count-number" id="hours">—</div><div class="count-label">Heures</div></div>
+            <div class="count-box"><div class="count-number" id="minutes">—</div><div class="count-label">Minutes</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="histoire">
+      <div class="container">
+        <div class="reveal" style="max-width:720px; margin-bottom:48px;">
+          <div class="section-kicker">Quelques pages de nous</div>
+          <h2>Notre histoire</h2>
+          <p class="muted">Quelques souvenirs, quelques dates, et beaucoup de moments qui nous ont conduits jusqu’ici.</p>
+        </div>
+
+        <div class="story-grid reveal">
+          <div class="story-photo"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=90" alt="Photo souvenir du couple"></div>
+          <div class="story-card story-list">
+            <div><div class="story-date">[Date]</div><h3>Notre rencontre</h3><p class="muted">Un petit texte à compléter pour raconter le tout début de votre histoire.</p></div>
+            <div><div class="story-date">[Souvenir]</div><h3>Notre histoire</h3><p class="muted">Un souvenir, un voyage, une anecdote ou un moment qui vous ressemble.</p></div>
+          </div>
+        </div>
+
+        <div style="height:38px"></div>
+
+        <div class="story-grid reverse reveal">
+          <div class="story-photo"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=90" alt="Moment romantique du couple"></div>
+          <div class="story-card story-list">
+            <div><div class="story-date">[Date]</div><h3>La demande</h3><p class="muted">Le lieu, le moment, les émotions… quelques lignes pour raconter ce souvenir.</p></div>
+            <div><div class="story-date">15 août 2027</div><h3>Et maintenant…</h3><p class="muted">Un nouveau chapitre s’écrira entourés de ceux que nous aimons.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="grand-jour">
+      <div class="container reveal">
+        <div class="grand-day">
+          <div class="inner">
+            <div class="section-kicker" style="color:#efe4cf">Le rendez-vous</div>
+            <h2>Le grand jour</h2>
+            <p class="day-date">Dimanche 15 août 2027</p>
+            <p>Nous avons hâte de vivre cette journée entourés des personnes qui comptent le plus pour nous.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="programme">
+      <div class="container">
+        <div class="reveal" style="max-width:670px">
+          <div class="section-kicker">Au fil de la journée</div>
+          <h2>Le programme</h2>
+        </div>
+        <div class="timeline reveal">
+          <div class="timeline-item"><div class="timeline-dot">◇</div><div class="timeline-time">15h00</div><div class="timeline-title">Cérémonie</div><p class="muted">Quelques mots sur le lieu et l’arrivée des invités.</p></div>
+          <div class="timeline-item"><div class="timeline-dot">◇</div><div class="timeline-time">17h00</div><div class="timeline-title">Cocktail</div><p class="muted">Retrouvons-nous autour d’un verre pour célébrer.</p></div>
+          <div class="timeline-item"><div class="timeline-dot">◇</div><div class="timeline-time">19h30</div><div class="timeline-title">Dîner</div><p class="muted">Place aux festivités.</p></div>
+          <div class="timeline-item"><div class="timeline-dot">◇</div><div class="timeline-time">22h30</div><div class="timeline-title">Soirée</div><p class="muted">Danser, rire et profiter jusqu’au bout de la nuit.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lieux">
+      <div class="container">
+        <div class="reveal" style="max-width:670px">
+          <div class="section-kicker">Nos lieux</div>
+          <h2>Rendez-vous ici</h2>
+        </div>
+        <div class="places-grid">
+          <article class="place-card reveal">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=90" alt="Lieu de cérémonie">
+            <div class="place-content">
+              <div class="place-label">La cérémonie</div>
+              <h3>Nom du lieu</h3>
+              <p class="muted">Adresse<br>Ville</p>
+              <a class="btn" href="#" target="_blank" rel="noopener">Voir l’itinéraire</a>
+            </div>
+          </article>
+
+          <article class="place-card reveal">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=90" alt="Lieu de réception">
+            <div class="place-content">
+              <div class="place-label">La réception</div>
+              <h3>Nom du domaine</h3>
+              <p class="muted">Adresse<br>Ville</p>
+              <a class="btn" href="#" target="_blank" rel="noopener">Voir l’itinéraire</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galerie">
+      <div class="container">
+        <div class="reveal" style="max-width:670px; margin-bottom:38px;">
+          <div class="section-kicker">Notre album</div>
+          <h2>Quelques souvenirs</h2>
+        </div>
+        <div class="gallery">
+          <figure class="wide reveal"><img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1400&q=90" alt="Souvenir du couple"></figure>
+          <figure class="portrait reveal"><img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=900&q=90" alt="Portrait du couple"></figure>
+          <figure class="portrait reveal"><img src="https://images.unsplash.com/photo-1481841580057-e2b9927a05c6?auto=format&fit=crop&w=900&q=90" alt="Moment du couple"></figure>
+          <figure class="feature reveal"><img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?auto=format&fit=crop&w=1200&q=90" alt="Photo romantique"></figure>
+          <figure class="square reveal"><img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&fit=crop&w=900&q=90" alt="Détail souvenir"></figure>
+          <figure class="square reveal"><img src="https://images.unsplash.com/photo-1460364157752-926555421a7e?auto=format&fit=crop&w=900&q=90" alt="Photo du couple"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="infos">
+      <div class="container">
+        <div class="reveal" style="max-width:760px">
+          <div class="section-kicker">À savoir</div>
+          <h2>Quelques détails avant le jour J</h2>
+        </div>
+        <div class="details-grid">
+          <div class="detail-card reveal"><div class="detail-icon">◌</div><h3>Dress code</h3><p class="muted">Tenue élégante / informations à compléter.</p></div>
+          <div class="detail-card reveal"><div class="detail-icon">⌂</div><h3>Hébergement</h3><p class="muted">Quelques recommandations seront ajoutées prochainement.</p></div>
+          <div class="detail-card reveal"><div class="detail-icon">↗</div><h3>Transport & stationnement</h3><p class="muted">Informations à compléter.</p></div>
+          <div class="detail-card reveal"><div class="detail-icon">♡</div><h3>Enfants</h3><p class="muted">Information à compléter.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rsvp">
+      <div class="container reveal">
+        <div class="rsvp-wrap">
+          <div class="rsvp-intro">
+            <div class="section-kicker">RSVP</div>
+            <h2>Serez-vous des nôtres ?</h2>
+            <p>Votre présence rendrait cette journée encore plus belle.</p>
+            <p>Merci de nous confirmer votre présence avant le <strong>[date à définir]</strong>.</p>
+          </div>
+
+          <form class="rsvp-form" id="rsvpForm">
+            <div class="field"><label for="name">Nom et prénom</label><input id="name" name="name" type="text" placeholder="Votre nom" required></div>
+            <div class="field"><label for="presence">Présence</label><select id="presence" name="presence" required><option value="">Choisir</option><option>Présent(e)</option><option>Absent(e)</option></select></div>
+            <div class="form-grid-2">
+              <div class="field"><label for="adults">Nombre d’adultes</label><input id="adults" name="adults" type="number" min="0" value="1"></div>
+              <div class="field"><label for="children">Nombre d’enfants</label><input id="children" name="children" type="number" min="0" value="0"></div>
+            </div>
+            <div class="field"><label for="diet">Allergies ou régime alimentaire</label><input id="diet" name="diet" type="text" placeholder="À préciser si besoin"></div>
+            <div class="field"><label for="message">Petit mot pour les mariés</label><textarea id="message" name="message" placeholder="Votre message..."></textarea></div>
+            <div><button class="btn btn-primary" type="submit">Envoyer ma réponse</button></div>
+            <div class="form-message" id="formMessage">Merci ♡ Votre réponse a bien été prise en compte sur cette version de démonstration.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="finale">
+    <div class="finale-content reveal">
+      <h2>Morgane <span class="script">&</span> Alexandre</h2>
+      <div class="date">15 août 2027</div>
+      <p style="margin:26px auto 0; max-width:620px; font-family:var(--serif); font-size:1.45rem;">Nous avons tellement hâte de partager cette journée avec vous.</p>
+      <div class="heart">♡</div>
+    </div>
+  </footer>
+
+  <script>
+    const weddingDate = new Date('2027-08-15T15:00:00+02:00').getTime();
+
+    function updateCountdown() {
+      const now = Date.now();
+      const distance = weddingDate - now;
+      if (distance <= 0) {
+        document.getElementById('days').textContent = '0';
+        document.getElementById('hours').textContent = '0';
+        document.getElementById('minutes').textContent = '0';
+        return;
+      }
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById('days').textContent = days;
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.getElementById('rsvpForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('formMessage').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
